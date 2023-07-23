@@ -1,0 +1,52 @@
+{
+	"name": "quellenform/t3x-lib-ical-eventnews",
+	"type": "typo3-cms-extension",
+	"description": "iCalendar Provider for Events",
+	"keywords": [
+		"TYPO3",
+		"extension",
+		"service",
+		"ical"
+	],
+	"license": [
+		"GPL-3.0-or-later"
+	],
+	"homepage": "https://extensions.typo3.org/extension/lib_ical_eventnews",
+	"support": {
+		"source": "https://github.com/quellenform/t3x-lib-ical-eventnews",
+		"issues": "https://github.com/quellenform/t3x-lib-ical-eventnews/issues"
+	},
+	"authors": [
+		{
+			"name": "Stephan Kellermayr",
+			"email": "typo3@quellenform.at",
+			"role": "Developer",
+			"homepage": "https://www.quellenform.at/"
+		}
+	],
+	"require": {
+		"php": ">=8.0",
+		"typo3/cms-core": "^11.5",
+		"quellenform/t3x-lib-ical": "^0.3.0",
+		"georgringer/eventnews": "^6.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Quellenform\\LibIcalEventnews\\": "Classes"
+		}
+	},
+	"replace": {
+		"typo3-ter/lib_ical_eventnews": "self.version"
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://composer.typo3.org/"
+		}
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "lib_ical_eventnews"
+		}
+	}
+}
