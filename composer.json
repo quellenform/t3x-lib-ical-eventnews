@@ -26,9 +26,9 @@
 	],
 	"require": {
 		"php": ">=8.0",
-		"typo3/cms-core": "^11.5",
-		"quellenform/t3x-lib-ical": "^0.3.0",
-		"georgringer/eventnews": "^6.0.0"
+		"typo3/cms-core": "^11.5 || ^12",
+		"quellenform/t3x-lib-ical": "^0.3 || ^0.4",
+		"georgringer/eventnews": "^6"
 	},
 	"autoload": {
 		"psr-4": {
