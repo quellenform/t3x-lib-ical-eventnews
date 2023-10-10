@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') || die();
+defined('TYPO3') || die();
 
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lib_ical')) {
     \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
