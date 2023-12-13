@@ -42,8 +42,19 @@ class EventnewsProvider implements IcalProviderInterface
         $newsRepository = GeneralUtility::makeInstance(NewsRepository::class);
 
         if (!empty($params['uid'])) {
+            // Create query
+            $query = $newsRepository->createQuery();
+            $query->getQuerySettings()->setLanguageUid($params['L']);
+            $query->getQuerySettings()->setRespectStoragePage(false);
+            $query->getQuerySettings()->setRespectSysLanguage(false);
+
             // Find record by given UID
-            $eventRecord = $newsRepository->findByUid($params['uid']);
+            $eventRecord = $query->matching(
+                $query->logicalAnd(
+                    $query->equals('uid', $params['uid']),
+                    $query->equals('deleted', 0)
+                )
+            )->execute()->getFirst();
 
             if ($eventRecord !== null && $eventRecord->getIsEvent()) {
                 $calendar = $ical->getCalendar();
