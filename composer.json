@@ -28,7 +28,7 @@
 		"php": ">=8.0",
 		"typo3/cms-core": "^11.5 || ^12",
 		"quellenform/t3x-lib-ical": "^0.3 || ^0.4",
-		"georgringer/eventnews": "^6"
+		"georgringer/eventnews": "^6 || ^7"
 	},
 	"autoload": {
 		"psr-4": {
