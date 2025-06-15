@@ -15,7 +15,9 @@ use Quellenform\LibIcal\Domain\Model\Calendar;
 use Quellenform\LibIcal\Ical;
 use Quellenform\LibIcal\IcalProviderInterface;
 use Quellenform\LibIcal\Utility\IcalUtility;
+use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
  * Class EventnewsProvider
@@ -45,7 +47,13 @@ class EventnewsProvider implements IcalProviderInterface
         if (!empty($params['uid'])) {
             // Create query
             $query = $newsRepository->createQuery();
-            $query->getQuerySettings()->setLanguageUid($params['L']);
+            if (version_compare(VersionNumberUtility::getCurrentTypo3Version(), '12', '>=')) {
+                $query->getQuerySettings()->setLanguageAspect(
+                    new LanguageAspect($params['L'])
+                );
+            } else {
+                $query->getQuerySettings()->setLanguageUid($params['L']);
+            }
             $query->getQuerySettings()->setRespectStoragePage(false);
             $query->getQuerySettings()->setRespectSysLanguage(false);
 
