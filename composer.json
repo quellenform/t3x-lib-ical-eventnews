@@ -27,7 +27,7 @@
 	"require": {
 		"php": ">=8.0",
 		"typo3/cms-core": "^11.5 || ^12",
-		"quellenform/t3x-lib-ical": "^0.3 || ^0.4",
+		"quellenform/t3x-lib-ical": "^0.5 || 0.*.*@dev",
 		"georgringer/eventnews": "^6 || ^7"
 	},
 	"autoload": {
