@@ -29,7 +29,7 @@ class EventnewsProvider implements IcalProviderInterface
     public $calendar = null;
 
     /**
-     * Get eventnews-record and prepare data for iCal
+     * Get eventnews record and prepare data for iCal.
      *
      * @param Ical $ical
      * @param array $params
