@@ -2,15 +2,21 @@
 
 defined('TYPO3') || die();
 
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('lib_ical')) {
-    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \Quellenform\LibIcal\IcalRegistry::class
+use GeorgRinger\News\Domain\Repository\NewsRepository;
+use Quellenform\LibIcal\IcalRegistry;
+use Quellenform\LibIcalEventnews\Provider\EventnewsProvider;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+if (ExtensionManagementUtility::isLoaded('lib_ical')) {
+    GeneralUtility::makeInstance(
+        IcalRegistry::class
     )->registerProvider(
         'eventnews',
-        \Quellenform\LibIcalEventnews\Provider\EventnewsProvider::class,
+        EventnewsProvider::class,
         [
             'components' => 'vevent',
-            'class' => \GeorgRinger\News\Domain\Repository\NewsRepository::class
+            'class' => NewsRepository::class
         ]
     );
 }
