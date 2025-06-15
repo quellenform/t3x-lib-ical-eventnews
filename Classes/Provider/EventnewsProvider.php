@@ -9,6 +9,7 @@ namespace Quellenform\LibIcalEventnews\Provider;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use GeorgRinger\Eventnews\Domain\Model\News;
 use GeorgRinger\News\Domain\Repository\NewsRepository;
 use Quellenform\LibIcal\Domain\Model\Calendar;
 use Quellenform\LibIcal\Ical;
@@ -49,6 +50,7 @@ class EventnewsProvider implements IcalProviderInterface
             $query->getQuerySettings()->setRespectSysLanguage(false);
 
             // Find record by given UID
+            /** @var News $eventRecord */
             $eventRecord = $query->matching(
                 $query->logicalAnd(
                     $query->equals('uid', $params['uid']),
